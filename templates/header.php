@@ -37,6 +37,10 @@ if(isset($_SESSION["msg"])){
         <a href="index.php" class="navbar-brand">
             <img src="img/pizza.svg" alt="Pizzaria" id="brand-logo">
         </a>
+       
+
+
+       </div>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
@@ -44,6 +48,9 @@ if(isset($_SESSION["msg"])){
                 </li>
             </ul>
         </div>
+        <a href="dashboard.php" class="car-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
         </nav>
     </header>
     <?php if($msg !=""):?>
