@@ -18,7 +18,7 @@ html, body{
 
 /*HOME*/
 #main-banner{
-    background-image: url("../img/pizza-banner.jpg");
+    background-image: url("../img/pizza-banner2.jpg");
     height: 300px;
     background-position: center;
     background-size:cover;
@@ -33,11 +33,11 @@ html, body{
 
 #main-banner h1{
     color: #FFF;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
     padding: 30px;
     text-transform: uppercase;
-    width: 550px;
+    width: 500px;
 
 }
 
@@ -69,6 +69,7 @@ html, body{
 .btn.btn-primary {
     background-color: #000;
     border-color: #000;
+
 }
 
 /* ALERTA */
@@ -121,81 +122,6 @@ html, body {
 
 }
 
-
-/* HOME */
-#main-banner {
-  background-image: url("../img/pizza-banner.jpg");
-  height: 300px;
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  background-position-y: -300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#main-banner h1 {
-  color: #FFF;
-  background-color: #000;
-  text-align: center;
-  padding: 30px;
-  text-transform: uppercase;
-  width: 550px;
-  font-size: 50px;
-}
-
-#main-container {
-  margin-bottom: 100px;
-  padding: 50px 0;
-  text-align: center;
-  min-height: 50%;
-}
-
-#main-container h2 {
-  margin-bottom: 30px;
-}
-
-.row {
-  margin: 0;
-}
-
-#pizza-form {
-  max-width: 550px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-#pizza-form label {
-  font-weight: bold;
-}
-
-.btn.btn-primary {
-  background-color: #000;
-  border-color: #000;
-}
-
-/* ALERTA */
-.alert {
-  border-radius: 0;
-  text-align: center;
-  margin-bottom: 0;
-  font-weight: bold;
-  padding: 20px;
-  font-size: 18px;
-}
-
-.alert.alert-success {
-  border: 2px solid #155724;
-}
-
-.alert.alert-warning {
-  border: 2px solid #856404;
-}
-
-.alert p {
-  margin-bottom: 0;
-}
 
 /* DASHBOARD */
 

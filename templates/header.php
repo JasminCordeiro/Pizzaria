@@ -29,6 +29,8 @@ if(isset($_SESSION["msg"])){
 
     <!-- App CSS --> 
     <link rel="stylesheet" href="css/styles.css">
+    <!-- fav-icon --> 
+    <link rel="shortcut icon" href="img/pizza.svg" type="image/x-icon">
 </head>
 
 <body>
