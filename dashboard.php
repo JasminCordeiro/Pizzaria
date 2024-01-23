@@ -18,18 +18,18 @@
                             <th scope="col"><span>Massa</span></th>
                             <th scope="col"><span>Sabores</span></th>
                            <!-- <th scope="col">Status</th> -->
-                            <th scope="col"><span>Sabores</span></th>                        
+                            <th scope="col"><span></span></th>                        
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach($pizzas as $pizza):?>
                             <tr>
-                            <td><?=$pizza["id"] ?></td>
+                            <td>#<?=$pizza["id"] ?></td>
                             <td><?=$pizza["borda"] ?></td>
                             <td><?=$pizza["massa"] ?></td>
                             
                             <td>
-                                <ul>
+                                <ul class="sabores-list" >
                                 <?php foreach($pizza["sabores"] as $sabor):?>
                                     <li><?= $sabor; ?></li>
                                 <?php endforeach;?>
@@ -59,7 +59,7 @@
                                     <input type="hidden" name="type" value="delete">
                                     <input type="hidden" name="id" value="<?= $pizza["id"] ?>">
                                     <button type="submit" class="delete-btn">
-                                        <p class="cancel">Cancelar pedido <i class="fas fa-times"></i></p>
+                                        <p class="cancel">Cancelar o pedido <i class="fas fa-times"></i></p>
                                         
                                     </button>
                                 </form>

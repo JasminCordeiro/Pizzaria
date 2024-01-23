@@ -125,41 +125,50 @@ html, body {
 
 /* DASHBOARD */
 
-  .delete-btn /*, .update-btn */ {
-    border: none;
-    background-color: transparent;
-}
-  
-  .delete-btn {
-    padding-top: 10px;
-}
-  
-  .delete-btn i,.cancel {
-    
-    color: #721c24;
-    font-size: 15px;
+/* Adiciona estilo para melhorar a apresentação da lista de sabores */
+.table ul.sabores-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-  /* .update-btn {
-    margin-left: 10px;
-} */
-  
-  /* .update-btn i {
-    color: #004085;
+.table ul.sabores-list li {
+  margin-bottom: 5px;
 }
-  
-  .update-form {
-    display: flex;
-    flex-direction: row;
-} */
-  
-  /* .status-input {
-    width: 65%;
+
+/* Adiciona estilo para centralizar o texto verticalmente nas células da tabela */
+.table td, .table th {
+  vertical-align: middle;
+ 
 }
-   */
-  .table ul {
-    text-align: left;
+
+/* Adiciona estilo para espaçamento entre as células da tabela */
+.table td, .table th {
+  padding: 10px;
 }
+
+/* Adiciona estilo para o botão de exclusão */
+.delete-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.delete-btn p {
+  margin: 0;
+  color: #721c24;
+}
+
+.delete-btn i {
+  color: #721c24;
+  font-size: 15px;
+}
+
+/* Adiciona estilo para o ícone de exclusão */
+.delete-btn i {
+  margin-left: 5px;
+}
+
 
 /*FOOTER*/
 
