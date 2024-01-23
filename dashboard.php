@@ -14,11 +14,11 @@
                      <thead>
                         <tr>
                             <th scope="col"><span>Pedido</span></th>
-                            <th scope="col">Borda</th>
-                            <th scope="col">Massa</th>
-                            <th scope="col">Sabores</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Ações</th>                        
+                            <th scope="col"><span>Borda</span></th>
+                            <th scope="col"><span>Massa</span></th>
+                            <th scope="col"><span>Sabores</span></th>
+                           <!-- <th scope="col">Status</th> -->
+                            <th scope="col"><span>Sabores</span></th>                        
                         </tr>
                     </thead>
                     <tbody>
@@ -27,6 +27,7 @@
                             <td><?=$pizza["id"] ?></td>
                             <td><?=$pizza["borda"] ?></td>
                             <td><?=$pizza["massa"] ?></td>
+                            
                             <td>
                                 <ul>
                                 <?php foreach($pizza["sabores"] as $sabor):?>
@@ -36,27 +37,30 @@
                                 </ul>
                             </td>
 
-                            <td>
+                             <!-- <td>
                                 <form action="process/orders.php" method="POST"  class="form-group update-form">
                                     <input type="hidden" name="type" value="update">
                                     <input type="hidden" name="id" value="<?= $pizza["id"] ?>">
                                     <select name="status" class="form-control status-input">
-                                    <?php foreach($status as $s):?>
-                                    <option value="<?=$s["id"]?>"  <?php echo ($s["id"] == $pizza["status"]) ? "selected" : ""; ?> > <?=$s["tipo"]?></option>
-                                    <?php endforeach;?>
+                                        <?php foreach($status as $s):?>
+                                        <option value="<?=$s["id"]?>"  <?php echo ($s["id"] == $pizza["status"]) ? "selected" : ""; ?> > <?=$s["tipo"]?></option>
+                                        <?php endforeach;?>
                                     </select>
                                     <button type="submit" class="update-btn">
                                         <i class="fas fa-sync-alt"></i>
                                     </button>
 
                                 </form>
-                                </td>
+                                </td>  -->
+
+
                                 <td>
-                                <form action="process/orders.php" method="POST">
+                                <form action="process/orders.php" method="POST" >
                                     <input type="hidden" name="type" value="delete">
                                     <input type="hidden" name="id" value="<?= $pizza["id"] ?>">
                                     <button type="submit" class="delete-btn">
-                                        <i class="fas fa-times"></i>
+                                        <p class="cancel">Cancelar pedido <i class="fas fa-times"></i></p>
+                                        
                                     </button>
                                 </form>
                             </td>

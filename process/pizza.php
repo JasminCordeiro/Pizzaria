@@ -44,6 +44,8 @@
             $stmt->bindParam(":massa", $massa, PDO::PARAM_INT);
 
             $stmt->execute();
+            
+
 
             $pizzaId = $conn->lastInsertId();
 

@@ -125,7 +125,7 @@ html, body {
 
 /* DASHBOARD */
 
-  .delete-btn, .update-btn {
+  .delete-btn /*, .update-btn */ {
     border: none;
     background-color: transparent;
 }
@@ -134,28 +134,29 @@ html, body {
     padding-top: 10px;
 }
   
-  .delete-btn i {
+  .delete-btn i,.cancel {
+    
     color: #721c24;
-    font-size: 20px;
+    font-size: 15px;
 }
 
-  .update-btn {
+  /* .update-btn {
     margin-left: 10px;
-}
+} */
   
-  .update-btn i {
+  /* .update-btn i {
     color: #004085;
 }
   
   .update-form {
     display: flex;
     flex-direction: row;
-}
+} */
   
-  .status-input {
+  /* .status-input {
     width: 65%;
 }
-  
+   */
   .table ul {
     text-align: left;
 }
@@ -165,7 +166,7 @@ html, body {
 footer{
     position: relative;
     width: 100%;
-    height: 100px;
+    height: 120px;
     background-color: #000;
     color: #FFF;
     display: flex;
@@ -206,7 +207,7 @@ footer{
   }
 
   .table td, .table th {
-    padding: .5rem;
+    padding: 0.5rem;
   }
 
   th span {
@@ -216,8 +217,9 @@ footer{
   .table thead th:nth-child(5),
   .table thead th:nth-child(6),
   .table tbody td:nth-child(5),
-  .table tbody td:nth-child(6) {
-    display: none;
+  .table tbody td:nth-child(6) 
+  {
+  display: none;
   }
 
 }
