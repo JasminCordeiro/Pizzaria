@@ -108,7 +108,7 @@
 
       $deleteQuery->execute();
 
-      $_SESSION["msg"] = "Pedido removido com sucesso!";
+      $_SESSION["msg"] = "Pedido cancelado com sucesso!";
       $_SESSION["status"] = "success";
 
     // Atualizar status do pedido
