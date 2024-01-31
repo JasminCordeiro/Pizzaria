@@ -50,13 +50,6 @@ if(isset($_SESSION["msg"])){
                 </li>
             </ul>
         </div>
-         <!-- Adicione um ícone de usuário do Bootstrap e um link para a página de login -->
-         <a href="login.php" class="user-icon">
-                <i class="fas fa-user"></i>
-            </a>
-        <a href="dashboard.php" class="car-icon">
-                <i class="fas fa-shopping-cart"></i>
-            </a>
         </nav>
     </header>
     <?php if($msg !=""):?>

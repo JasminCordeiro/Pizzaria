@@ -1,5 +1,5 @@
 <?php
-    include_once("templates/header.php");
+    include_once("templates/headerLogin.php");
     include_once("process/orders.php");
 
 ?>
@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Gerenciar pedidos:</h2>
+                    <h2>Confira seu Pedido:</h2>
                 </div>
                 <div class="col-md-12 table-container">
                     <table class="table">
@@ -52,26 +52,37 @@
 
                                 </form>
                                 </td>  -->
-
-
-                                <td>
-                                <form action="process/orders.php" method="POST" >
-                                    <input type="hidden" name="type" value="delete">
-                                    <input type="hidden" name="id" value="<?= $pizza["id"] ?>">
-                                    <button type="submit" class="delete-btn">
-                                        <p class="cancel">Cancelar o pedido <i class="fas fa-times"></i></p>
-                                        
-                                    </button>
-                                </form>
-                            </td>
                             </tr>
                         <?php endforeach;?>
                     </tbody>
                   </table>
-                </div>
+                  </div>
+            <!-- Botões de confirmação e cancelamento de pedido -->
+            <div class="col-md-12 mt-4 mb-4">
+                <button class="confirm-btn" onclick="confirmarPedido()">
+                    <p class="confirm">Confirmar Pedido <i class="fas fa-check"></i></p>
+                </button>
+            </div>
+            <div class="col-md-12 mb-4">
+                <form action="process/orders.php" method="POST">
+                    <input type="hidden" name="type" value="delete">
+                    <input type="hidden" name="id" value="<?= $pizza["id"] ?>">
+                    <button type="submit" class="delete-btn">
+                        <p class="cancel">Cancelar o pedido <i class="fas fa-times"></i></p>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
+
+    <script>
+    function confirmarPedido() {
+        // Lógica para confirmar o pedido, redirecionar, etc.
+        alert("Pedido confirmado! Redirecionando para a página de confirmação...");
+
+        window.location.href = "index.php";
+    }
+</script>
 <?php
     include_once("templates/footer.php");
 ?>
