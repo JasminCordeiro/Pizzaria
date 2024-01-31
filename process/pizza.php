@@ -8,6 +8,11 @@
 
     if ($method === "GET") {
 
+        $tamanhosQuery = $conn->query("SELECT * FROM tamanhos;");
+
+        $tamanhos = $tamanhosQuery->fetchAll();
+
+
         $bordasQuery = $conn->query("SELECT * FROM bordas;");
 
         $bordas = $bordasQuery->fetchAll();
@@ -18,28 +23,30 @@
         $massas = $massasQuery->fetchAll();
 
         
-        $saboresQuery = $conn->query("SELECT * FROM sabores;");
+        $ingredientesQuery = $conn->query("SELECT * FROM ingredientes;");
 
-        $sabores = $saboresQuery->fetchAll();
+        $ingredientes = $ingredientesQuery->fetchAll();
          
         
     } else if($method === "POST"){
         
         $data = $_POST;
         
+        $tamanho = $data["tamanho"];
         $borda = $data["borda"];
         $massa = $data["massa"];
-        $sabores = $data["sabores"];
+        $ingredientes = $data["ingredientes"];
 
-        if (count($sabores)>3) {
+        if (count($ingredientes)>3) {
 
-            $_SESSION["msg"] = "Selecione no máximo 3 sabores!";
+            $_SESSION["msg"] = "Selecione no máximo 3 ingredientes!";
             $_SESSION["status"] = "warning";
 
             
         } else {
             
-            $stmt = $conn->prepare("INSERT INTO pizzas (borda_id, massa_id) VALUES (:borda,:massa)");
+            $stmt = $conn->prepare("INSERT INTO pizzas (borda_id, massa_id, tamanho_id) VALUES (:borda,:massa,:tamanho)");
+            $stmt->bindParam(":tamanho", $tamanho, PDO::PARAM_INT);
             $stmt->bindParam(":borda", $borda, PDO::PARAM_INT);
             $stmt->bindParam(":massa", $massa, PDO::PARAM_INT);
 
@@ -49,11 +56,11 @@
 
             $pizzaId = $conn->lastInsertId();
 
-            $stmt = $conn->prepare("INSERT INTO pizza_sabor (pizza_id, sabor_id) VALUES (:pizza,:sabor)");
+            $stmt = $conn->prepare("INSERT INTO pizza_ingrediente (pizza_id, ingrediente_id) VALUES (:pizza,:ingrediente)");
 
-            foreach($sabores as $sabor){
+            foreach($ingredientes as $ingrediente){
                 $stmt->bindParam(":pizza", $pizzaId, PDO::PARAM_INT);
-                $stmt->bindParam(":sabor", $sabor, PDO::PARAM_INT);
+                $stmt->bindParam(":ingrediente", $ingrediente, PDO::PARAM_INT);
 
                 $stmt->execute();
 

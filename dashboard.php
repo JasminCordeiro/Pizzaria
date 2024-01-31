@@ -14,9 +14,10 @@
                      <thead>
                         <tr>
                             <th scope="col"><span>Pedido</span></th>
+                            <th scope="col"><span>Tamanho</span></th>
                             <th scope="col"><span>Borda</span></th>
                             <th scope="col"><span>Massa</span></th>
-                            <th scope="col"><span>Sabores</span></th>
+                            <th scope="col"><span>Ingredientes</span></th>
                            <!-- <th scope="col">Status</th> -->
                             <th scope="col"><span></span></th>                        
                         </tr>
@@ -25,13 +26,14 @@
                         <?php foreach($pizzas as $pizza):?>
                             <tr>
                             <td>#<?=$pizza["id"] ?></td>
+                            <td><?=$pizza["tamanho"] ?></td>
                             <td><?=$pizza["borda"] ?></td>
                             <td><?=$pizza["massa"] ?></td>
                             
                             <td>
-                                <ul class="sabores-list" >
-                                <?php foreach($pizza["sabores"] as $sabor):?>
-                                    <li><?= $sabor; ?></li>
+                                <ul class="ingredientes-list" >
+                                <?php foreach($pizza["ingredientes"] as $ingrediente):?>
+                                    <li><?= $ingrediente; ?></li>
                                 <?php endforeach;?>
 
                                 </ul>

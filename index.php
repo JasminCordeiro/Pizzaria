@@ -12,6 +12,18 @@
                 <div class="col-md-12">
                     <h2>Monte a pizza como desejar:</h2>    
                     <form action="process/pizza.php" method="POST" id="pizza-form">
+
+                        <div class="form-group">
+                            <label for="tamanho">Tamanho:</label>
+                            <select name="tamanho" id="tamanho" class="form-control">
+                                <option value="">Selecione o tamanho</option>
+                                <?php foreach($tamanhos as $tamanho): ?>
+                                    <option value="<?= $tamanho["id"] ?>"><?= $tamanho["tipo"] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+
                         <div class="form-group">
                             <label for="borda">Borda:</label>
                             <select name="borda" id="borda" class="form-control">
@@ -34,10 +46,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="sabores">Sabores: (Máximo 3)</label>
-                            <select multiple name="sabores[]" id="sabores" class="form-control">      
-                                <?php foreach($sabores as $sabor): ?>
-                                    <option value="<?= $sabor["id"] ?>"><?= $sabor["nome"] ?></option>
+                            <label for="ingredientes">Ingredientes: (Máximo 3)</label>
+                            <select multiple name="ingredientes[]" id="ingredientes" class="form-control">      
+                                <?php foreach($ingredientes as $ingrediente): ?>
+                                    <option value="<?= $ingrediente["id"] ?>"><?= $ingrediente["nome"] ?></option>
                                 <?php endforeach; ?>           
                             </select>
                         </div>

@@ -29,6 +29,20 @@
 
       $pizzaData = $pizzaQuery->fetch(PDO::FETCH_ASSOC);
 
+      // resgatando o tamanho da pizza
+
+
+      $tamanhoQuery = $conn->prepare("SELECT * FROM tamanhos WHERE id = :tamanho_id");
+
+      $tamanhoQuery->bindParam(":tamanho_id", $pizzaData["tamanho_id"]);
+
+      $tamanhoQuery->execute();
+
+      $tamanho = $tamanhoQuery->fetch(PDO::FETCH_ASSOC);
+
+      $pizza["tamanho"] = $tamanho["tipo"];
+
+
       // resgatando a borda da pizza
       $bordaQuery = $conn->prepare("SELECT * FROM bordas WHERE id = :borda_id");
 
@@ -51,33 +65,33 @@
 
       $pizza["massa"] = $massa["tipo"];
 
-      // resgatando os sabores da pizza
-      $saboresQuery = $conn->prepare("SELECT * FROM pizza_sabor WHERE pizza_id = :pizza_id");
+      // resgatando os ingredientes da pizza
+      $ingredientesQuery = $conn->prepare("SELECT * FROM pizza_ingrediente WHERE pizza_id = :pizza_id");
 
-      $saboresQuery->bindParam(":pizza_id", $pizza["id"]);
+      $ingredientesQuery->bindParam(":pizza_id", $pizza["id"]);
 
-      $saboresQuery->execute();
+      $ingredientesQuery->execute();
 
-      $sabores = $saboresQuery->fetchAll(PDO::FETCH_ASSOC);
+      $ingredientes = $ingredientesQuery->fetchAll(PDO::FETCH_ASSOC);
 
-      // resgatando o nome dos sabores
-      $saboresDaPizza = [];
+      // resgatando o nome dos ingredientes
+      $ingredientesDaPizza = [];
 
-      $saborQuery = $conn->prepare("SELECT * FROM sabores WHERE id = :sabor_id");
+      $ingredienteQuery = $conn->prepare("SELECT * FROM ingredientes WHERE id = :ingrediente_id");
 
-      foreach($sabores as $sabor) {
+      foreach($ingredientes as $ingrediente) {
 
-        $saborQuery->bindParam(":sabor_id", $sabor["sabor_id"]);
+        $ingredienteQuery->bindParam(":ingrediente_id", $ingrediente["ingrediente_id"]);
 
-        $saborQuery->execute();
+        $ingredienteQuery->execute();
 
-        $saborPizza = $saborQuery->fetch(PDO::FETCH_ASSOC);
+        $ingredientePizza = $ingredienteQuery->fetch(PDO::FETCH_ASSOC);
 
-        array_push($saboresDaPizza, $saborPizza["nome"]);
+        array_push($ingredientesDaPizza, $ingredientePizza["nome"]);
 
       }
 
-      $pizza["sabores"] = $saboresDaPizza;
+      $pizza["ingredientes"] = $ingredientesDaPizza;
 
       // adicionar o status do pedido
       $pizza["status"] = $pedido["status_id"];

@@ -129,15 +129,17 @@ html, body {
 
 /* DASHBOARD */
 
-/* Adiciona estilo para melhorar a apresentação da lista de sabores */
-.table ul.sabores-list {
+/* Adiciona estilo para melhorar a apresentação da lista de ingredientes */
+.table ul.ingredientes-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.table ul.sabores-list li {
+.table ul.ingredientes-list li {
   margin-bottom: 5px;
+  list-style: none;
+
 }
 
 /* Adiciona estilo para centralizar o texto verticalmente nas células da tabela */
