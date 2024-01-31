@@ -24,8 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        // Login bem-sucedido, redirecione para a página principal
-        header("Location: ../dashboard.php");
+        // Verifique se o usuário é um administrador
+        if($username === "admin") {
+            header("Location: ../admin.php");
+        } else{
+            // Login bem-sucedido, redirecione para a página principal
+            header("Location: ../dashboard.php");
+    }
     } else {
         // Login falhou, redirecione com uma mensagem de erro
         header("Location: ../index.php?error=Nome de usuário ou senha incorretos");

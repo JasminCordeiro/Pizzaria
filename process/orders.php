@@ -114,15 +114,17 @@
     // deletar pedido
     if($type === "delete") {
 
-      $pizzaId = $_POST["id"];
+      $selected_orders = $_POST['selected_orders'];
+      foreach ($selected_orders as $pizzaId) {
 
-      $deleteQuery = $conn->prepare("DELETE FROM pedidos WHERE pizza_id = :pizza_id;");
+        $deleteQuery = $conn->prepare("DELETE FROM pedidos WHERE id = :id;");
 
-      $deleteQuery->bindParam(":pizza_id", $pizzaId, PDO::PARAM_INT);
+        $deleteQuery->bindParam(":id", $pizzaId, PDO::PARAM_INT);
 
-      $deleteQuery->execute();
+        $deleteQuery->execute();
+      }
 
-      $_SESSION["msg"] = "Pedido cancelado com sucesso!";
+      $_SESSION["msg"] = "Pedido(s) cancelado(s) com sucesso!";
       $_SESSION["status"] = "success";
 
     // Atualizar status do pedido

@@ -3,7 +3,7 @@
   session_start();
 
   $user = "root";
-  $pass = "123456";
+  $pass = "Samlat03";
   $db = "pizzaria";
   $host = "localhost:3307";
 
