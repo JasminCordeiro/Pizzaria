@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="ingredientes">Ingredientes: (Máximo 3)</label>
+                            <label for="ingredientes">Ingredientes:</label>
                             <select multiple name="ingredientes[]" id="ingredientes" class="form-control">      
                                 <?php foreach($ingredientes as $ingrediente): ?>
                                     <option value="<?= $ingrediente["id"] ?>"><?= $ingrediente["nome"] ?></option>

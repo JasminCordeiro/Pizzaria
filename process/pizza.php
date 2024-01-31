@@ -37,9 +37,22 @@
         $massa = $data["massa"];
         $ingredientes = $data["ingredientes"];
 
-        if (count($ingredientes)>3) {
+        if (empty($_POST['tamanho']) || empty($_POST['borda']) || empty($_POST['massa'])) {
 
-            $_SESSION["msg"] = "Selecione no máximo 3 ingredientes!";
+            $campoVazio = [];
+            
+            
+            if(empty($_POST['tamanho'])){
+                $campoVazio[] = 'tamanho';
+            }
+            if(empty($_POST['borda'])){
+                $campoVazio[] = 'borda';
+            }
+            if(empty($_POST['massa'])){
+                $campoVazio[] = 'massa';
+            }
+
+            $_SESSION["msg"] = "Selecione no mínimo uma opção para: " . implode(', ',$campoVazio);
             $_SESSION["status"] = "warning";
 
             
