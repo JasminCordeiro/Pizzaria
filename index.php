@@ -58,7 +58,9 @@
                         </div>
 
                         <div class="form-group">
+                            <link href="dashboard.php">
                               <input type="submit" class="btn btn-primary" value="Fazer Pedido!">
+                            </link>
                         </div>
 
                     </form>

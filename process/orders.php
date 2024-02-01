@@ -93,18 +93,11 @@
 
       $pizza["ingredientes"] = $ingredientesDaPizza;
 
-      // adicionar o status do pedido
-      $pizza["status"] = $pedido["status_id"];
-
       // Adicionar o array de pizza, ao array das pizzas
       array_push($pizzas, $pizza);
 
     }
 
-    // Resgatando os status
-    $statusQuery = $conn->query("SELECT * FROM status;");
-
-    $status = $statusQuery->fetchAll();
 
   } else if($method === "POST") {
 
@@ -114,40 +107,25 @@
     // deletar pedido
     if($type === "delete") {
 
-      $selected_orders = $_POST['selected_orders'];
-      foreach ($selected_orders as $pizzaId) {
+      $pizzaId = $_POST["id"];
 
-        $deleteQuery = $conn->prepare("DELETE FROM pedidos WHERE id = :id;");
+      $deleteQuery = $conn->prepare("DELETE FROM pedidos WHERE pizza_id = :pizza_id;");
 
-        $deleteQuery->bindParam(":id", $pizzaId, PDO::PARAM_INT);
+      $deleteQuery->bindParam(":pizza_id", $pizzaId, PDO::PARAM_INT);
 
-        $deleteQuery->execute();
+      $deleteQuery->execute();
       }
 
       $_SESSION["msg"] = "Pedido(s) cancelado(s) com sucesso!";
       $_SESSION["status"] = "success";
 
-    // Atualizar status do pedido
-    } else if($type === "update") {
-
-      $pizzaId = $_POST["id"];
-      $statusId = $_POST["status"];
-
-      $updateQuery = $conn->prepare("UPDATE pedidos SET status_id = :status_id WHERE pizza_id = :pizza_id");
-
-      $updateQuery->bindParam(":pizza_id", $pizzaId, PDO::PARAM_INT);
-      $updateQuery->bindParam(":status_id", $statusId, PDO::PARAM_INT);
-
-      $updateQuery->execute();
-
-      $_SESSION["msg"] = "Pedido atualizado com sucesso!";
-      $_SESSION["status"] = "success";
-
-    }
-
+      if (strpos($_SERVER['HTTP_REFERER'], 'admin.php') !== false) {
+        header("Location: ../admin.php");
+      } else {
+        header("Location: ../dashboard.php");
+      }
     // retorna usuário para dashboard
     header("Location: ../dashboard.php");
-
   }
 
 ?>

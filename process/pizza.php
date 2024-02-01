@@ -79,11 +79,10 @@
 
             }
 
-            $stmt = $conn->prepare("INSERT INTO pedidos (pizza_id, status_id) VALUES (:pizza,:status)");
+            $stmt = $conn->prepare("INSERT INTO pedidos (pizza_id) VALUES (:pizza)");
 
             $statusId = 1;
             $stmt->bindParam(":pizza", $pizzaId);
-            $stmt->bindParam(":status", $statusId);
 
             $stmt->execute();
 

@@ -162,6 +162,27 @@
         alert("Por favor, selecione pelo menos um pedido para cancelar.");
     }
 }
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $type = $_POST['type'];
+    if ($type === 'delete') {
+        $id = $_POST['id'];
+        // Substitua com a consulta SQL correta para excluir um pedido
+        $query = "DELETE FROM pedidos WHERE id = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        if ($stmt->affected_rows > 0) {
+            $_SESSION['message'] = 'Pedido excluído com sucesso';
+        } else {
+            $_SESSION['message'] = 'Erro ao excluir pedido';
+        }
+        header('Location: ../dashboard.php');
+        exit();
+    }
+}
+?>
 </script>
 <?php
     include_once("templates/footer.php");

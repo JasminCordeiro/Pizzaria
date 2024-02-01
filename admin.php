@@ -45,9 +45,11 @@ include_once("process/orders.php");
                                     </ul>
                                 </td>
                                 <td>
-                                    <!-- Adicione botões ou links de ação conforme necessário -->
-                                    
-                                    <button class="btn btn-danger">Excluir</button>
+                                    <form action="process/orders.php" method="POST">
+                                        <input type="hidden" name="type" value="delete">
+                                        <input type="hidden" name="id" value="<?= $pizza["id"] ?>">
+                                        <button typy="submit" class="btn btn-danger">Excluir</button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
