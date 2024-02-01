@@ -79,6 +79,9 @@
 
       $ingredienteQuery = $conn->prepare("SELECT * FROM ingredientes WHERE id = :ingrediente_id");
 
+       //resgatando o preço total da pizza
+       $pizza["precoTotal"] = $pedido["preco_total"];
+
       foreach($ingredientes as $ingrediente) {
 
         $ingredienteQuery->bindParam(":ingrediente_id", $ingrediente["ingrediente_id"]);
@@ -107,17 +110,37 @@
     // deletar pedido
     if($type === "delete") {
 
-      $pizzaId = $_POST["id"];
+      if ($type === "delete") {
+        $selectedOrders = isset($_POST["selected_orders"]) ? $_POST["selected_orders"] : [];
 
-      $deleteQuery = $conn->prepare("DELETE FROM pedidos WHERE pizza_id = :pizza_id;");
+        if (!empty($selectedOrders)) {
+            $placeholders = implode(',', array_fill(0, count($selectedOrders), '?'));
 
-      $deleteQuery->bindParam(":pizza_id", $pizzaId, PDO::PARAM_INT);
+            $deleteQuery = $conn->prepare("DELETE FROM pedidos WHERE pizza_id IN ($placeholders)");
 
-      $deleteQuery->execute();
-      }
+            foreach ($selectedOrders as $index => $pizzaId) {
+                $deleteQuery->bindValue($index + 1, $pizzaId, PDO::PARAM_INT);
+            }
 
-      $_SESSION["msg"] = "Pedido(s) cancelado(s) com sucesso!";
-      $_SESSION["status"] = "success";
+            $deleteQuery->execute();
+
+            $_SESSION["msg"] = "Pedido(s) cancelado(s) com sucesso!";
+            $_SESSION["status"] = "success";
+        }
+    } elseif ($type === "insert") {
+        // Inserir novo pedido
+        $pizzaId = $_POST["id"];
+        $precoTotal = $_POST["preco_total"];
+
+        $stmt = $conn->prepare("INSERT INTO pedidos (pizza_id, preco_total) VALUES (:pizza_id, :preco_total) ON DUPLICATE KEY UPDATE preco_total = :preco_total");
+        $stmt->bindParam(":pizza_id", $pizzaId, PDO::PARAM_INT);
+        $stmt->bindParam(":preco_total", $precoTotal, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        $_SESSION["msg"] = "Pedido inserido com sucesso!";
+        $_SESSION["status"] = "success";
+    }
 
       if (strpos($_SERVER['HTTP_REFERER'], 'admin.php') !== false) {
         header("Location: ../admin.php");
@@ -126,6 +149,7 @@
       }
     // retorna usuário para dashboard
     header("Location: ../dashboard.php");
+    exit();
   }
-
+  }
 ?>

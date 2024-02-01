@@ -18,3 +18,6 @@ function atualizarPrecoTotal() {
 $('select[name="tamanho"], select[name="borda"], select[name="massa"], select[name="ingredientes[]"]').change(function() {
     atualizarPrecoTotal();
 });
+
+
+

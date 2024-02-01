@@ -67,14 +67,14 @@
                             <th scope="col"><span>Borda</span></th>
                             <th scope="col"><span>Massa</span></th>
                             <th scope="col"><span>Ingredientes</span></th>
-                           <!-- <th scope="col">Status</th> -->
-                            <th scope="col"><span></span></th>                        
+                            <th scope="col"><span>Preço</span></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach($pizzas as $pizza):?>
+                            <?php $precoTotal = isset($pizza["precoTotal"]) ? $pizza["precoTotal"] : 0; ?>
                             <tr>
-                            <td><?=$pizza["id"] ?><input type="checkbox" name="selected_orders[]" value="<?=$pizza["id"] ?>"></td>
+                            <td><input type="checkbox" name="selected_orders[]" value="<?=$pizza["id"] ?>"></td>
                             <td><?=$pizza["tamanho"] ?></td>
                             <td><?=$pizza["borda"] ?></td>
                             <td><?=$pizza["massa"] ?></td>
@@ -87,23 +87,10 @@
 
                                 </ul>
                             </td>
-
-                             <!-- <td>
-                                <form action="process/orders.php" method="POST"  class="form-group update-form">
-                                    <input type="hidden" name="type" value="update">
-                                    <input type="hidden" name="id" value="<?= $pizza["id"] ?>">
-                                    <select name="status" class="form-control status-input">
-                                        <?php foreach($status as $s):?>
-                                        <option value="<?=$s["id"]?>"  <?php echo ($s["id"] == $pizza["status"]) ? "selected" : ""; ?> > <?=$s["tipo"]?></option>
-                                        <?php endforeach;?>
-                                    </select>
-                                    <button type="submit" class="update-btn">
-                                        <i class="fas fa-sync-alt"></i>
-                                    </button>
-
-                                </form>
-                                </td>  -->
+                            <td>R$ <?= number_format($precoTotal, 2, ',', '.') ?></td>
                             </tr>
+
+                            
                         <?php endforeach;?>
                     </tbody>
                   </table>
@@ -115,10 +102,10 @@
                 </button>
             </div>
             <div class="col-md-12 mb-4">
-                <form action="process/orders.php" method="POST">
+                <form action="process/orders.php" method="POST" id="cancelForm">
                     <input type="hidden" name="type" value="delete">
                     <input type="hidden" name="id" value="<?= $pizza["id"] ?>">
-                    <button type="submit" class="delete-btn">
+                    <button type="submit" class="delete-btn" onclick="cancelarPedido()">
                         <p class="cancel">Cancelar o pedido <i class="fas fa-times"></i></p>
                     </button>
                 </form>
