@@ -4,7 +4,6 @@
 
 ?>
 <style>
-    /* Adicione essas classes no seu arquivo de estilo CSS ou dentro de uma tag <style> no cabeçalho do seu HTML */
 
 .select-container {
     position: relative;

@@ -64,7 +64,9 @@
                         </div>
 
                     </form>
-                    <p>Total: R$ <span id="precoTotal">0.00</span></p>
+                   
+                    <p class="total-container">Total: R$ <span id="precoTotal">0.00</span></p>
+
 
                 </div>
             </div>
