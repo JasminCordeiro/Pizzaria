@@ -30,8 +30,8 @@ Este projeto foi desenvolvido como parte do trabalho da disciplina Banco de Dado
 -	XAMPP 8.0 ou superior; 
 
 ## Configuração:
--Clone este repositório para a sua máquina local:
-  -git clone https://github.com/JasminCordeiro/Pizzaria no caminho C:\xampp\htdocs
-  -inicie o XAMPP e deixe rodar o Apache e MySQL durante a utilização do projeto:
+- Clone este repositório para a sua máquina local:
+  - git clone https://github.com/JasminCordeiro/Pizzaria no caminho C:\xampp\htdocs
+  - inicie o XAMPP e deixe rodar o Apache e MySQL durante a utilização do projeto:
   ![image](https://github.com/JasminCordeiro/Pizzaria/assets/79463331/fb9bd604-27e7-4a5b-824b-768bb1d16bc4)
 
