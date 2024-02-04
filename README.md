@@ -17,16 +17,17 @@ Este projeto foi desenvolvido como parte do trabalho da disciplina Banco de Dado
 - **Tela de login:**  Uma tela de acesso que redireciona de acordo com o tipo de acesso, podendo ser cliente ou administrador.
   ![image](https://github.com/JasminCordeiro/Pizzaria/assets/79463331/6408ff06-9768-4389-87e7-dd7e1f47c008)
 
-- **Tela de administrador**:Permite o cancelamento de pedidos, além de emitir relatórios da pizzaria, como pedidos, ingredientes e usuários.
+- **Tela de administrador**: Permite o cancelamento de pedidos, além de emitir relatórios da pizzaria, como pedidos, ingredientes e usuários.
   ![image](https://github.com/JasminCordeiro/Pizzaria/assets/79463331/3584d64d-bdd5-4e12-aa94-b45d7144f062)
 
 ## Requisitos:
-⦁	A base de dados deverá ser disponível aos usuários autorizados;
-⦁	Os usuários com login devem ser pré-cadastrados;
-⦁	A aplicação deverá funcionar tanto em ambiente Windows e Linux;
-⦁	MySQL (ou outro banco de dados compatível);
-⦁	MySQL Connector;
-⦁	XAMPP 8.0 ou superior; 
+
+- A base de dados deverá ser disponível aos usuários autorizados;
+-	Os usuários com login devem ser pré-cadastrados;
+-	A aplicação deverá funcionar tanto em ambiente Windows e Linux;
+-	MySQL (ou outro banco de dados compatível);
+-	MySQL Connector;
+-	XAMPP 8.0 ou superior; 
 
 ## Configuração:
 -Clone este repositório para a sua máquina local:
