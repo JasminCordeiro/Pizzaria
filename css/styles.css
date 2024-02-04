@@ -54,6 +54,7 @@ html, body{
 
 #main-container h2{
     margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .row{
@@ -136,11 +137,14 @@ html, body {
   margin: 0;
 }
 
+
 .table ul.ingredientes-list li {
   margin-bottom: 5px;
   list-style: none;
 
 }
+
+
 
 /* Adiciona estilo para centralizar o texto verticalmente nas células da tabela */
 .table td, .table th {
@@ -197,6 +201,17 @@ html, body {
   margin-left: 5px;
   margin-right: 5px;
 }
+/*    Admin     */
+
+
+
+.ingredientes-list-adm li{
+  display: flex;
+  justify-content: center ;
+  align-items: center;
+  
+}
+
 
 
 /*FOOTER*/
@@ -242,6 +257,7 @@ footer{
 
   .table-container {
     padding: 0;
+    
   }
 
   .table td, .table th {

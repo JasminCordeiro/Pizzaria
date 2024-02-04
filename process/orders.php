@@ -108,7 +108,7 @@
     $type = $_POST["type"];
 
     // deletar pedido
-    if($type === "delete") {
+    
 
       if ($type === "delete") {
         $selectedOrders = isset($_POST["selected_orders"]) ? $_POST["selected_orders"] : [];
@@ -147,9 +147,8 @@
       } else {
         header("Location: ../dashboard.php");
       }
-    // retorna usuário para dashboard
-    header("Location: ../dashboard.php");
+    
     exit();
-  }
+  
   }
 ?>
